@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Christian Vega — Polymath • Maker • Problem Solver</title>
+<meta name="description" content="Christian Vega — locksmithing, knife sharpening, animal care & homestead, IT/server setups, content creation, and more." />
+
+<style>
+  /* ====== Theme ====== */
+  :root{
+    --bg:#0c0f14;
+    --ink:#f7fbff;
+    --muted:#c7d2e1;
+
+    /* Vibrant palette */
+    --p1:#7cffe9;  /* teal mint */
+    --p2:#ffd166;  /* warm gold */
+    --p3:#a78bfa;  /* lavender */
+    --p4:#ff7aa2;  /* pink */
+    --p5:#57a5ff;  /* sky */
+
+    --card: rgba(255,255,255,.06);
+    --line: rgba(255,255,255,.12);
+    --r:16px;
+    --max:1120px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;
+    background: radial-gradient(1200px 800px at 10% -10%, #112439 0%, transparent 60%),
+                radial-gradient(1200px 800px at 110% 0%, #361f4b 0%, transparent 60%),
+                var(--bg);
+    color:var(--ink);
+    font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  }
+
+  a{color:var(--p1);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ====== Header / Hero ====== */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+    background:
+      radial-gradient(800px 480px at 15% 20%, rgba(124,255,233,.35), transparent 60%),
+      radial-gradient(800px 480px at 90% 10%, rgba(255,122,162,.35), transparent 60%),
+      linear-gradient(135deg, #0f1b2a, #12121a 70%);
+    border-bottom:1px solid var(--line);
+  }
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px;}
+
+  .hero-grid{
+    display:grid; gap:22px; align-items:center;
+    grid-template-columns: 180px 1fr;
+    padding:36px 0 24px;
+  }
+
+  .pfp{
+    width:180px;height:180px;border-radius:50%;
+    background:#0e1420;border:2px solid rgba(255,255,255,.22);
+    overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,.35);
+  }
+  .pfp img{width:100%;height:100%;object-fit:cover}
+
+  h1{margin:0;font-size:2.25rem;letter-spacing:.2px}
+  .subtitle{color:var(--muted);margin:8px 0 0}
+
+  .tags{margin:12px 0 0; display:flex; flex-wrap:wrap; gap:8px}
+  .tag{
+    padding:6px 10px;border-radius:999px;border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+    color:var(--muted); font-size:.9rem; white-space:nowrap;
+  }
+
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .btn{
+    display:inline-block; padding:11px 14px; border-radius:12px; font-weight:600;
+    border:1px solid var(--line); background:var(--card); color:var(--ink);
+    backdrop-filter: blur(6px);
+    transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.25); border-color:rgba(255,255,255,.25)}
+  .btn.primary{background: linear-gradient(135deg, var(--p5), var(--p3)); color:#06101d}
+  .btn.accent{background: linear-gradient(135deg, var(--p2), var(--p4)); color:#1b0b10}
+
+  /* ====== Sections ====== */
+  main{padding:28px 0}
+  .grid{display:grid; gap:18px; grid-template-columns: repeat(12, 1fr)}
+  .card{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    border-radius:var(--r); padding:18px;
+  }
+  .span-12{grid-column: span 12}
+  .span-8{grid-column: span 8}
+  .span-6{grid-column: span 6}
+  .span-4{grid-column: span 4}
+
+  h2{margin:.2rem 0 .6rem; font-size:1.2rem}
+  p{margin:.3rem 0}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .pill{
+    padding:6px 10px;border-radius:999px;border:1px solid var(--line);
+    background:linear-gradient(135deg, rgba(124,255,233,.16), rgba(87,165,255,.16));
+    color:#dff9ff; font-size:.9rem
+  }
+  .list a{
+    display:block; padding:10px 12px; margin:8px 0; border-radius:12px;
+    border:1px solid var(--line); background:var(--card);
+  }
+  .list a:hover{background:linear-gradient(135deg, rgba(255,209,102,.15), rgba(167,139,250,.15)); text-decoration:none}
+
+  footer{color:var(--muted); text-align:center; padding:22px 0 28px}
+
+  /* ====== Mobile tweaks ====== */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns: 110px 1fr}
+    .pfp{width:110px;height:110px}
+    .span-8,.span-6,.span-4{grid-column: span 12}
+  }
+</style>
+</head>
+
+<body>
+  <!-- ====== HERO ====== -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="pfp">
+          <!-- Your portrait file (all lowercase) -->
+          <img src="/chrisv.png" alt="Portrait of Christian Vega" loading="eager" />
+        </div>
+        <div>
+          <h1>Christian Vega</h1>
+          <p class="subtitle">Polymath • Maker • Locksmith • Knife Sharpener • Animal Care & Homestead • IT & Self-Hosting</p>
+
+          <div class="tags">
+            <span class="tag">Problem Solver</span>
+            <span class="tag">Hands-on + High-tech</span>
+            <span class="tag">Trauma-informed animal handling</span>
+            <span class="tag">Servers & self-hosted stacks</span>
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="/links/">Links</a>
+            <a class="btn" href="/resume/">Resume</a>
+            <a class="btn accent" href="/dante/">Meet Dante (service dog)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== MAIN ====== -->
+  <div class="wrap">
+    <main>
+      <section class="grid">
+        <div class="card span-8">
+          <h2>What I Do</h2>
+          <p>
+            I work across trades and technology: locksmithing & knife sharpening; animal care, beekeeping,
+            and homestead skills; plus IT projects like servers, self-hosting, and site setup (including this one).
+            “Jack of all trades” isn’t a downgrade—range helps me solve real problems end-to-end and translate between worlds.
+          </p>
+          <div class="pills">
+            <span class="pill">Locksmithing (residential lockouts)</span>
+            <span class="pill">Knife sharpening</span>
+            <span class="pill">Blacksmith & leatherwork</span>
+            <span class="pill">Animal care & behavior (trauma-informed)</span>
+            <span class="pill">Beekeeping • pickling • soap & candles</span>
+            <span class="pill">IT • servers • self-hosting</span>
+            <span class="pill">Cooking & recipe development</span>
+          </div>
+        </div>
+
+        <div class="card span-4">
+          <h2>Quick Links</h2>
+          <div class="list">
+            <a href="/locksmith/">🔐 Locksmith</a>
+            <a href="/knife-sharpening/">🔪 Knife Sharpening</a>
+            <a href="/it/">🖥️ IT & Projects</a>
+            <a href="/farm/">🌾 Farm & Animal Care</a>
+            <a href="/dante/">🐕 Dante — Service Dog</a>
+            <a href="/links/">🔗 All Links (YouTube, GitHub, etc.)</a>
+          </div>
+        </div>
+
+        <div class="card span-6">
+          <h2>Why a Polymath?</h2>
+          <p>
+            Range makes me useful. I can troubleshoot a lock in the morning, harden a Linux server at noon,
+            and help a stressed animal feel safe in the evening. Being good at many things lets me spot patterns,
+            connect specialists, and deliver results without hand-offs.
+          </p>
+        </div>
+
+        <div class="card span-6">
+          <h2>Animals & Training</h2>
+          <p>
+            I practice presence-based, trauma-informed handling. I’m experienced with sensitive, working-type dogs and
+            helping animals re-regulate so they can learn. Dante (my service dog in training) is part of that journey.
+          </p>
+          <p><a href="/dante/">See Dante’s profile →</a></p>
+        </div>
+
+        <div class="card span-12">
+          <h2>Contact</h2>
+          <p>
+            For work inquiries or collaboration:
+            <a href="mailto:chrisvega12345@gmail.com">chrisvega12345@gmail.com</a>
+          </p>
+        </div>
+      </section>
+
+      <footer>© <span id="y"></span> Christian Vega</footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
