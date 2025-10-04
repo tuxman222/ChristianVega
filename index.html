@@ -1,10 +1,147 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Christian Vega</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <p>This is my first GitHub Pages site.</p>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Christian Vega — Polymath • Maker • Problem Solver</title>
+<meta name="description" content="Christian Vega — multi-skilled builder and polymath. Locksmithing, knife sharpening, animal care, homestead skills, IT/server setups, and more." />
+<style>
+  :root{
+    --bg:#0f1116; --ink:#e9edf1; --muted:#aab3c0; --card:#151924;
+    --line:#252b36; --accent:#79ffe1; --accent2:#ffd479; --max:1040px; --r:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:24px}
+  header.hero{
+    display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:center;
+    padding:24px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10131a,transparent);
+  }
+  .pfp{width:160px;height:160px;border-radius:50%;overflow:hidden;border:2px solid #2a3040;background:#0c0f15}
+  .pfp img{width:100%;height:100%;object-fit:cover}
+  h1{margin:0;font-size:2rem;line-height:1.15}
+  .tag{display:inline-block;padding:6px 10px;border:1px solid #2a3040;border-radius:999px;
+       color:var(--muted);background:#121722;margin:6px 6px 0 0;font-size:.9rem}
+  .lead{color:var(--muted);margin:10px 0 0}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #2a3040;background:#141a26}
+  .btn.primary{border-color:#2c3646;background:#182033}
+  main{padding:24px}
+  h2{font-size:1.2rem;margin:6px 0 10px}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+  .span-12{grid-column:span 12}
+  .span-8{grid-column:span 8}
+  .span-6{grid-column:span 6}
+  .span-4{grid-column:span 4}
+  ul{margin:8px 0 0 18px}
+  li{margin:6px 0}
+  .pill{display:inline-block;padding:4px 10px;border-radius:999px;background:#121722;border:1px solid #2a3040;color:var(--muted);margin:4px 6px 0 0}
+  .list-links a{display:block;padding:10px;border:1px solid var(--line);border-radius:10px;background:#121722;margin:8px 0}
+  footer{color:var(--muted);text-align:center;margin:28px 0 18px}
+  @media (max-width:880px){
+    header.hero{grid-template-columns:100px 1fr}
+    .pfp{width:100px;height:100px}
+    .span-8,.span-6,.span-4{grid-column:span 12}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="pfp">
+        <!-- Put your headshot at /assets/christian.jpg (lowercase) -->
+        <img src="/assets/christian.jpg" alt="Portrait of Christian Vega">
+      </div>
+      <div>
+        <h1>Christian Vega</h1>
+        <div>
+          <span class="tag">Polymath</span>
+          <span class="tag">Maker</span>
+          <span class="tag">Locksmith & Knife Sharpener</span>
+          <span class="tag">Animal Care & Homestead</span>
+          <span class="tag">IT & Self-Hosting</span>
+        </div>
+        <p class="lead">
+          I’m a multi-skilled builder who blends hands-on trades with modern tech. 
+          “Jack of all trades” isn’t a downgrade—being broadly skilled lets me solve real problems, 
+          connect experts across fields, and get things done end-to-end.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="/links/">Links</a>
+          <a class="btn" href="/resume/">Resume</a>
+          <a class="btn" href="/dante/">Meet Dante (service dog)</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid">
+        <div class="card span-8">
+          <h2>What I Do</h2>
+          <p>
+            I work across trades and technology: locksmithing and knife sharpening; animal care, beekeeping,
+            and homestead skills; plus IT projects like servers, self-hosting, and site setup (including this one).
+            I’m practical, calm under pressure, and I care about doing things right.
+          </p>
+          <div>
+            <span class="pill">Locksmithing (residential lockouts)</span>
+            <span class="pill">Knife sharpening</span>
+            <span class="pill">Blacksmith & leatherwork</span>
+            <span class="pill">Animal care & behavior (trauma-informed)</span>
+            <span class="pill">Beekeeping • pickling • soap & candles</span>
+            <span class="pill">IT • servers • self-hosting</span>
+            <span class="pill">Cooking & recipe development</span>
+          </div>
+        </div>
+
+        <div class="card span-4">
+          <h2>Quick Links</h2>
+          <div class="list-links">
+            <a href="/locksmith/">Locksmith</a>
+            <a href="/knife-sharpening/">Knife Sharpening</a>
+            <a href="/it/">IT & Projects</a>
+            <a href="/farm/">Farm & Animal Care</a>
+            <a href="/dante/">Dante — Service Dog</a>
+            <a href="/links/">All Links (YouTube, GitHub, etc.)</a>
+          </div>
+        </div>
+
+        <div class="card span-6">
+          <h2>Why a Polymath?</h2>
+          <p>
+            Range makes me useful. I can troubleshoot locks in the morning, harden a Linux server at noon, and 
+            settle a stressed animal in the evening. Being good at many things lets me spot patterns, translate between 
+            worlds, and deliver results without hand-offs.
+          </p>
+        </div>
+
+        <div class="card span-6">
+          <h2>Animals & Training</h2>
+          <p>
+            I practice presence-based, trauma-informed handling. I’m experienced with sensitive, working-type dogs and 
+            can help animals feel safe enough to learn. Dante (my service dog in training) is part of that journey.
+          </p>
+          <p><a href="/dante/">See Dante’s profile →</a></p>
+        </div>
+
+        <div class="card span-12">
+          <h2>Contact</h2>
+          <p>
+            For work inquiries or collaboration: 
+            <a href="mailto:christian@example.com">christian@example.com</a> 
+            <!-- Replace with your real email or a contact alias -->
+          </p>
+        </div>
+      </section>
+
+      <footer>© <span id="y"></span> Christian Vega</footer>
+    </main>
+  </div>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
 </html>
