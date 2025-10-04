@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Silver Ticker — XAG/USD</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<style>
+  :root{
+    --bg:#0b0f14; --ink:#eaf3ff; --muted:#9ab0c7;
+    --pad:14px; --r:18px; --maxw:720px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  .wrap{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--pad)}
+  .title{font-size:1rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+  .box{width:100%;max-width:var(--maxw);background:rgba(255,255,255,.06);
+       border:1px solid rgba(255,255,255,.12); border-radius:var(--r); padding:var(--pad)}
+  .big{font-size:2.2rem;line-height:1.1;margin:0 0 6px}
+  .sub{color:var(--muted);margin:0 0 10px}
+  .tv{height:56vh; min-height:340px; border-radius:12px; overflow:hidden}
+  .footer{margin-top:10px; color:var(--muted); font-size:.85rem; text-align:center}
+  .hint{opacity:.85}
+  @media (max-width:380px){ .big{font-size:1.8rem} .tv{min-height:300px} }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="title">Live Metal Price</div>
+    <div class="box">
+      <h1 class="big">Silver — XAG/USD</h1>
+      <p class="sub">Auto-updating (client-side). Best on Wi-Fi & charger.</p>
+
+      <!-- TradingView Mini Symbol Overview widget -->
+      <div class="tv" id="tv">
+        <div class="tradingview-widget-container" style="height:100%;width:100%">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" async
+            src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js">
+          {
+            "symbol": "FOREXCOM:XAGUSD",
+            "width": "100%",
+            "height": "100%",
+            "locale": "en",
+            "dateRange": "1D",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "autosize": true,
+            "largeChartUrl": "",
+            "noTimeScale": false
+          }
+          </script>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>Swipe up to keep the screen bright. <span class="hint">Tip: keep the phone plugged in.</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
