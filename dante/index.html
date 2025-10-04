@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dante • Service Dog Profile</title>
+  <meta name="description" content="Public profile for Dante, a service dog in training: tasks, etiquette, ADA access, contact info, gear and health notes." />
+  <style>
+    :root{
+      --bg:#0f1116; --card:#171a22; --ink:#e9edf1; --muted:#aab3c0;
+      --accent:#79ffe1; --accent-2:#ffd479; --ok:#70e000; --warn:#ffd166;
+      --max:920px;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      max-width:var(--max); margin:24px auto 0; padding:16px;
+      display:grid; gap:16px; grid-template-columns: 140px 1fr;
+      align-items:center;
+    }
+    .logo{
+      width:120px; height:120px; border-radius:50%; overflow:hidden;
+      border:2px solid #2a2f3a; background:#111;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    h1{margin:0;font-size:1.9rem;line-height:1.15}
+    .tagline{color:var(--muted);margin-top:6px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px 64px}
+    .grid{display:grid; gap:16px; grid-template-columns: repeat(12,1fr)}
+    .card{
+      background:var(--card); border:1px solid #262b36; border-radius:var(--radius);
+      padding:16px;
+    }
+    .span-12{grid-column:span 12}
+    .span-8{grid-column:span 8}
+    .span-6{grid-column:span 6}
+    .span-4{grid-column:span 4}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;background:#222836;border:1px solid #2d3442;color:var(--muted);font-size:.85rem}
+    h2{margin:.2rem 0 .6rem;font-size:1.15rem;letter-spacing:.2px}
+    ul{margin:.2rem 0 .2rem 1rem;padding:0}
+    li{margin:.25rem 0}
+    .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .kv{display:grid;grid-template-columns:120px 1fr;gap:8px;margin:6px 0;color:var(--muted)}
+    .kv b{color:var(--ink)}
+    .eta li{margin:.35rem 0}
+    .ok{color:var(--ok)} .warn{color:var(--warn)}
+    .footer{color:var(--muted);text-align:center;margin-top:28px;font-size:.9rem}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #2a3040;background:#1a1f2b;
+    }
+    code{background:#11161f;border:1px solid #242a36;padding:2px 6px;border-radius:6px}
+    @media (max-width:840px){
+      header{grid-template-columns: 100px 1fr}
+      .span-8,.span-6{grid-column:span 12}
+      .span-4{grid-column:span 12}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <!-- Make sure your file is named dante.png and placed in this folder -->
+      <img src="./dante.png" alt="Dante the service dog sitting in grass, black and cream coat, one ear semi-floppy." />
+    </div>
+    <div>
+      <h1>Dante — Service Dog (in training)</h1>
+      <div class="tagline">Handler: <b>Christian Vega</b> • Breed-type: Heeler/Shepherd mix • DOB ~2024 • Weight ~40 lb</div>
+      <div class="facts">
+        <span class="pill">Calm • People-focused</span>
+        <span class="pill">Sensitive to cues</span>
+        <span class="pill">Working on public access</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <div class="card span-8">
+        <h2>About Dante</h2>
+        <p>Dante is a young, attentive working-type dog being trained as a service animal. He is handler-sensitive, checks in frequently, and thrives with clear structure. One ear is adorably semi-floppy (his “Boomer ear”).</p>
+        <div class="kv"><b>Temperament</b> <span>Calm in public, alert/observant, affectionate with handler</span></div>
+        <div class="kv"><b>Energy need</b> <span>Moderate–high exercise; settles well after work</span></div>
+        <div class="kv"><b>Training style</b> <span>Marker/reward-based, fair corrections, lots of decompression time</span></div>
+      </div>
+
+      <div class="card span-4">
+        <h2>Quick Facts</h2>
+        <div class="kv"><b>Name</b><span>Dante</span></div>
+        <div class="kv"><b>Role</b><span>Service dog (in training)</span></div>
+        <div class="kv"><b>ID</b><span>Leash tag “Dante” • Black collar</span></div>
+        <div class="kv"><b>Color</b><span>Black & cream (tan “eyebrows”)</span></div>
+        <div class="kv"><b>Medical</b><span>No known allergies; UTD on core vaccines</span></div>
+      </div>
+
+      <div class="card span-6">
+        <h2>Tasks & Training Goals</h2>
+        <ul>
+          <li><b>Interrupt & ground</b> — nudge/lean to break spirals; settle at feet.</li>
+          <li><b>Create space</b> — body block/heel to maintain buffer in crowds.</li>
+          <li><b>Check-ins</b> — frequent eye contact and return-to-handler on cue.</li>
+          <li><b>Patterned walking</b> — loose-leash default, auto-sits at stops.</li>
+          <li><b>Sound/alert response</b> — orient to handler, ignore distractions.</li>
+        </ul>
+        <p class="muted" style="color:var(--muted)">Note: still polishing duration settle in busy indoor environments.</p>
+      </div>
+
+      <div class="card span-6">
+        <h2>Public Etiquette (How to interact)</h2>
+        <ul class="eta">
+          <li class="ok">✅ Okay to speak to the <b>handler</b> first.</li>
+          <li class="warn">⏸️ Please <b>do not pet, call, or distract</b> Dante while he’s working.</li>
+          <li>🚫 No food or treats from strangers.</li>
+          <li>📷 Ask before photos/videos.</li>
+          <li>🧹 Handler will promptly clean up any messes if they occur.</li>
+        </ul>
+      </div>
+
+      <div class="card span-8">
+        <h2>ADA Access (U.S.) — Fast Facts</h2>
+        <ul>
+          <li>Service dogs are <b>not pets</b>; “no pets” rules don’t apply to them.</li>
+          <li>Staff may only ask <b>two questions</b>:
+            <ol>
+              <li>Is the dog a service animal required because of a disability?</li>
+              <li>What work or task has the dog been trained to perform?</li>
+            </ol>
+          </li>
+          <li>No paperwork, fees, or vests are required by law (a vest is optional).</li>
+          <li>Dog must be under control; if out of control or not housebroken, access can be limited until under control again.</li>
+        </ul>
+        <p style="color:var(--muted)">For HOA/courtyard questions: service dogs may accompany the handler anywhere the public/residents can go.</p>
+      </div>
+
+      <div class="card span-4">
+        <h2>Gear</h2>
+        <ul>
+          <li>Flat/biothane collar or martingale</li>
+          <li>6-ft leash; long-line for training</li>
+          <li>Optional vest when “on-duty”</li>
+          <li>Paw balm as needed; ID tag</li>
+        </ul>
+      </div>
+
+      <div class="card span-6">
+        <h2>Health & Care Notes</h2>
+        <ul>
+          <li>Diet: balanced kibble + occasional toppers; no table scraps in public.</li>
+          <li>Hydration: carry collapsible bowl on warm days.</li>
+          <li>Breaks: regular potty and decompression walks reduce over-arousal.</li>
+        </ul>
+      </div>
+
+      <div class="card span-6">
+        <h2>Contact</h2>
+        <p>For questions about Dante while on property or in public:</p>
+        <ul>
+          <li><b>Handler:</b> Christian Vega</li>
+          <li><b>Email:</b> <a href="mailto:christian@example.com">christian@example.com</a></li>
+          <li><b>Emergency:</b> If separated, call the number on Dante’s tag.</li>
+        </ul>
+        <a class="btn" href="mailto:christian@example.com">Email the handler</a>
+      </div>
+    </section>
+
+    <p class="footer">© <span id="y"></span> Christian Vega • This is a simple static page hosted on GitHub Pages.</p>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Optional JSON-LD for better search context -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Thing",
+    "name":"Dante (Service Dog)",
+    "description":"Service dog in training; calm, people-focused, assists handler with grounding and public access tasks.",
+    "image":"https://tuxman222.github.io/ChristianVega.net/dante/dante.png",
+    "additionalProperty":[
+      {"@type":"PropertyValue","name":"Role","value":"Service dog (in training)"},
+      {"@type":"PropertyValue","name":"Handler","value":"Christian Vega"}
+    ]
+  }
+  </script>
+</body>
+</html>
