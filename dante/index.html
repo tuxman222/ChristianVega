@@ -57,13 +57,76 @@
       .span-8,.span-6{grid-column:span 12}
       .span-4{grid-column:span 12}
     }
+
+    /* ==============================
+       Click-to-zoom fullscreen photo
+       ============================== */
+    .logo button{
+      all:unset;
+      display:block;
+      width:120px; height:120px;
+      border-radius:50%;
+      overflow:hidden;
+      cursor: zoom-in;
+    }
+    .logo button:focus{
+      outline: 2px solid rgba(121,255,225,.7);
+      outline-offset: 3px;
+    }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.88);
+      display:none;
+      place-items:center;
+      z-index:9999;
+      padding:24px;
+    }
+    .lightbox.open{display:grid;}
+
+    .lightbox img{
+      max-width:min(980px, 96vw);
+      max-height: 90vh;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
+    }
+
+    .lightbox .hint{
+      margin-top:12px;
+      color: rgba(255,255,255,.75);
+      font-size:.95rem;
+      text-align:center;
+    }
+
+    .closebtn{
+      position:fixed;
+      top:14px; right:14px;
+      width:44px; height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      font-size:28px;
+      line-height:40px;
+      text-align:center;
+      cursor:pointer;
+      z-index:10000;
+      display:none;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .closebtn:hover{background: rgba(255,255,255,.14);}
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
       <!-- Make sure your file is named dante.png and placed in this folder -->
-      <img src="./dante.png" alt="Dante the service dog sitting in grass, black and cream coat, one ear semi-floppy." />
+      <button type="button" id="openPhoto" aria-label="Open Dante photo in full screen">
+        <img src="./dante.png" alt="Dante the service dog sitting in grass, black and cream coat, one ear semi-floppy." />
+      </button>
     </div>
     <div>
       <h1>Dante — Service Dog (in training)</h1>
@@ -75,6 +138,15 @@
       </div>
     </div>
   </header>
+
+  <!-- Fullscreen photo viewer -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div>
+      <img src="./dante.png" alt="Dante photo enlarged" />
+      <div class="hint">Tap anywhere to close</div>
+    </div>
+  </div>
+  <div class="closebtn" id="closePhoto" aria-label="Close full screen photo">×</div>
 
   <main class="wrap">
     <section class="grid">
@@ -170,6 +242,33 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Fullscreen photo lightbox
+    const openBtn = document.getElementById('openPhoto');
+    const lightbox = document.getElementById('lightbox');
+    const closeBtn = document.getElementById('closePhoto');
+
+    function openLightbox(){
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+      closeBtn.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      closeBtn.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openLightbox);
+    lightbox.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 
   <!-- Optional JSON-LD for better search context -->
