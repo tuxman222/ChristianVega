@@ -1,61 +1,113 @@
+<!-- ====== SIMPLE IT SERVICES + PRICING (Colorful) ====== -->
+<style>
+  /* Price cards that match your palette (orange + baby blue vibes) */
+  .pricecard{
+    position:relative;
+    overflow:hidden;
+  }
+  .pricecard::before{
+    content:"";
+    position:absolute; inset:-2px;
+    background: linear-gradient(135deg, rgba(255,209,102,.35), rgba(87,165,255,.30), rgba(124,255,233,.18));
+    filter: blur(22px);
+    opacity:.9;
+    z-index:0;
+  }
+  .pricecard > *{position:relative; z-index:1}
+
+  .price-title{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 0 .35rem;
+    font-size:1.2rem;
+  }
+  .price{
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background: linear-gradient(135deg, rgba(255,209,102,.22), rgba(255,122,162,.18));
+    color:var(--ink);
+    font-weight:800;
+    letter-spacing:.2px;
+    white-space:nowrap;
+  }
+  .badge{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background: linear-gradient(135deg, rgba(87,165,255,.20), rgba(167,139,250,.18));
+    color:#eaf2ff;
+    font-weight:700;
+    font-size:.9rem;
+    margin-top:10px;
+  }
+  .micro{
+    color:var(--muted);
+    margin:.35rem 0 0;
+    font-size:.95rem;
+  }
+</style>
+
 <div class="card span-12">
-<h2>IT Services</h2>
-<p>
-Simple, practical technology help for homes and small setups.
-I focus on reliable systems that make your digital life easier.
-</p>
+  <h2>IT Services</h2>
+  <p class="micro">
+    Simple, practical tech help for homes and small setups. Flat prices where possible, and honest hourly help when it’s a mystery.
+  </p>
 </div>
 
-
-<div class="card span-6">
-<h2>Home VPN Setup — $80</h2>
-<p>
-Securely access your home computer, files, or media server from anywhere.
-Great for checking files while traveling or connecting to your home network safely.
-</p>
+<div class="card pricecard span-6">
+  <div class="price-title">
+    <span>🔒 Home VPN Setup</span>
+    <span class="price">$80</span>
+  </div>
+  <p>Securely access your home computer or files from anywhere (travel, work, emergencies).</p>
+  <span class="badge">No monthly subscription</span>
 </div>
 
-
-<div class="card span-6">
-<h2>Photo Backup System — $60</h2>
-<p>
-Automatic backup system for your photos and important files.
-Protect your memories so they are never lost if a computer or phone fails.
-</p>
+<div class="card pricecard span-6">
+  <div class="price-title">
+    <span>🖼️ Photo Backup System</span>
+    <span class="price">$60</span>
+  </div>
+  <p>Set up automatic backups so your photos and important files aren’t lost if a phone or PC dies.</p>
+  <span class="badge">“Set it & forget it”</span>
 </div>
 
-
-<div class="card span-6">
-<h2>Home File Server — $80</h2>
-<p>
-A central place in your home to store files, photos, and documents.
-Access your files from any computer in your house.
-</p>
+<div class="card pricecard span-6">
+  <div class="price-title">
+    <span>📁 Home File Server</span>
+    <span class="price">$80</span>
+  </div>
+  <p>A simple “home folder” for documents, photos, and shared files that any computer in the house can access.</p>
+  <span class="badge">Local + private</span>
 </div>
 
-
-<div class="card span-6">
-<h2>Computer Cleanup / Tune-Up — $40</h2>
-<p>
-Fix slow computers, remove unnecessary programs, and improve performance.
-Great for older laptops or desktops that feel sluggish.
-</p>
+<div class="card pricecard span-6">
+  <div class="price-title">
+    <span>📶 Wi-Fi / Router Setup</span>
+    <span class="price">$40</span>
+  </div>
+  <p>Get your Wi-Fi stable, secure, and working across the house. Includes basic security and cleanup.</p>
+  <span class="badge">Better coverage & stability</span>
 </div>
 
-
-<div class="card span-6">
-<h2>Wi-Fi / Router Setup — $40</h2>
-<p>
-Set up or troubleshoot your home Wi-Fi network so everything connects properly.
-Includes security setup and basic network optimization.
-</p>
+<div class="card pricecard span-6">
+  <div class="price-title">
+    <span>🛠️ Computer Cleanup / Tune-Up</span>
+    <span class="price">$40</span>
+  </div>
+  <p>Speed up a sluggish computer, remove junk, fix common issues, and make it usable again.</p>
+  <span class="badge">Great for older PCs</span>
 </div>
 
-
-<div class="card span-6">
-<h2>General Tech Help — $20/hour</h2>
-<p>
-Troubleshooting, software installs, printer setup, and general technology help.
-If I can't fix the issue, you don't pay.
-</p>
+<div class="card pricecard span-6">
+  <div class="price-title">
+    <span>🧰 General Tech Help</span>
+    <span class="price">$20/hr</span>
+  </div>
+  <p>Printers, installs, troubleshooting, weird errors, “why isn’t this working?” type problems.</p>
+  <span class="badge">If I can’t fix it, you don’t pay</span>
 </div>
