@@ -1,113 +1,70 @@
-<!-- ====== SIMPLE IT SERVICES + PRICING (Colorful) ====== -->
 <style>
-  /* Price cards that match your palette (orange + baby blue vibes) */
+  /* ====== Pricing cards (better contrast + same vibe) ====== */
   .pricecard{
     position:relative;
     overflow:hidden;
   }
+
+  /* Glow stays, but toned down so it doesn't wash out text */
   .pricecard::before{
     content:"";
     position:absolute; inset:-2px;
-    background: linear-gradient(135deg, rgba(255,209,102,.35), rgba(87,165,255,.30), rgba(124,255,233,.18));
-    filter: blur(22px);
-    opacity:.9;
+    background: linear-gradient(135deg,
+      rgba(255,209,102,.22),
+      rgba(87,165,255,.22),
+      rgba(167,139,250,.18)
+    );
+    filter: blur(18px);
+    opacity:.75;
     z-index:0;
   }
   .pricecard > *{position:relative; z-index:1}
 
   .price-title{
     display:flex;
-    align-items:baseline;
+    align-items:center;
     justify-content:space-between;
     gap:12px;
-    margin:0 0 .35rem;
-    font-size:1.2rem;
+    margin:0 0 .45rem;
   }
-  .price{
-    padding:6px 10px;
-    border-radius:999px;
-    border:1px solid var(--line);
-    background: linear-gradient(135deg, rgba(255,209,102,.22), rgba(255,122,162,.18));
-    color:var(--ink);
+  .price-title .name{
+    font-size:1.15rem;
     font-weight:800;
     letter-spacing:.2px;
-    white-space:nowrap;
   }
+
+  /* Price pill: readable + vibrant */
+  .price{
+    padding:7px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.22);
+    background: linear-gradient(135deg, rgba(255,209,102,.28), rgba(255,122,162,.22));
+    color:var(--ink);
+    font-weight:900;
+    white-space:nowrap;
+    box-shadow: 0 10px 22px rgba(0,0,0,.22);
+  }
+
+  /* BADGE FIX: make it clearly blue with dark text */
   .badge{
     display:inline-block;
-    padding:6px 10px;
-    border-radius:999px;
-    border:1px solid var(--line);
-    background: linear-gradient(135deg, rgba(87,165,255,.20), rgba(167,139,250,.18));
-    color:#eaf2ff;
-    font-weight:700;
-    font-size:.9rem;
     margin-top:10px;
+    padding:7px 12px;
+    border-radius:999px;
+
+    /* baby blue button look */
+    background: linear-gradient(135deg, rgba(87,165,255,.92), rgba(124,255,233,.68));
+    border:1px solid rgba(255,255,255,.28);
+
+    /* dark text so it’s readable */
+    color:#071522;
+    font-weight:900;
+    font-size:.9rem;
+
+    box-shadow: 0 10px 22px rgba(0,0,0,.20);
   }
-  .micro{
-    color:var(--muted);
-    margin:.35rem 0 0;
-    font-size:.95rem;
-  }
+
+  /* optional: make the service description slightly stronger */
+  .pricecard p{margin:.35rem 0 0}
+  .micro{color:var(--muted); margin:.35rem 0 0; font-size:.95rem}
 </style>
-
-<div class="card span-12">
-  <h2>IT Services</h2>
-  <p class="micro">
-    Simple, practical tech help for homes and small setups. Flat prices where possible, and honest hourly help when it’s a mystery.
-  </p>
-</div>
-
-<div class="card pricecard span-6">
-  <div class="price-title">
-    <span>🔒 Home VPN Setup</span>
-    <span class="price">$80</span>
-  </div>
-  <p>Securely access your home computer or files from anywhere (travel, work, emergencies).</p>
-  <span class="badge">No monthly subscription</span>
-</div>
-
-<div class="card pricecard span-6">
-  <div class="price-title">
-    <span>🖼️ Photo Backup System</span>
-    <span class="price">$60</span>
-  </div>
-  <p>Set up automatic backups so your photos and important files aren’t lost if a phone or PC dies.</p>
-  <span class="badge">“Set it & forget it”</span>
-</div>
-
-<div class="card pricecard span-6">
-  <div class="price-title">
-    <span>📁 Home File Server</span>
-    <span class="price">$80</span>
-  </div>
-  <p>A simple “home folder” for documents, photos, and shared files that any computer in the house can access.</p>
-  <span class="badge">Local + private</span>
-</div>
-
-<div class="card pricecard span-6">
-  <div class="price-title">
-    <span>📶 Wi-Fi / Router Setup</span>
-    <span class="price">$40</span>
-  </div>
-  <p>Get your Wi-Fi stable, secure, and working across the house. Includes basic security and cleanup.</p>
-  <span class="badge">Better coverage & stability</span>
-</div>
-
-<div class="card pricecard span-6">
-  <div class="price-title">
-    <span>🛠️ Computer Cleanup / Tune-Up</span>
-    <span class="price">$40</span>
-  </div>
-  <p>Speed up a sluggish computer, remove junk, fix common issues, and make it usable again.</p>
-  <span class="badge">Great for older PCs</span>
-</div>
-
-<div class="card pricecard span-6">
-  <div class="price-title">
-    <span>🧰 General Tech Help</span>
-    <span class="price">$20/hr</span>
-  </div>
-  <p>Printers, installs, troubleshooting, weird errors, “why isn’t this working?” type problems.</p>
-  <span class="badge">If I can’t fix it, you don’t pay</span>
-</div>
