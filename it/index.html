@@ -1,309 +1,61 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>IT & Self-Hosting — Christian Vega</title>
-<meta name="description" content="IT & self-hosting projects by Christian Vega: Linux servers, DNS, VPN, backups, automation, and home network builds." />
+<div class="card span-12">
+<h2>IT Services</h2>
+<p>
+Simple, practical technology help for homes and small setups.
+I focus on reliable systems that make your digital life easier.
+</p>
+</div>
 
-<style>
-  /* ====== Theme (copied from homepage) ====== */
-  :root{
-    --bg:#0c0f14;
-    --ink:#f7fbff;
-    --muted:#c7d2e1;
 
-    /* Vibrant palette */
-    --p1:#7cffe9;  /* teal mint */
-    --p2:#ffd166;  /* warm gold */
-    --p3:#a78bfa;  /* lavender */
-    --p4:#ff7aa2;  /* pink */
-    --p5:#57a5ff;  /* sky */
+<div class="card span-6">
+<h2>Home VPN Setup — $80</h2>
+<p>
+Securely access your home computer, files, or media server from anywhere.
+Great for checking files while traveling or connecting to your home network safely.
+</p>
+</div>
 
-    --card: rgba(255,255,255,.06);
-    --line: rgba(255,255,255,.12);
-    --r:16px;
-    --max:1120px;
-  }
 
-  *{box-sizing:border-box}
-  html,body{
-    margin:0;
-    background: radial-gradient(1200px 800px at 10% -10%, #112439 0%, transparent 60%),
-                radial-gradient(1200px 800px at 110% 0%, #361f4b 0%, transparent 60%),
-                var(--bg);
-    color:var(--ink);
-    font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  }
+<div class="card span-6">
+<h2>Photo Backup System — $60</h2>
+<p>
+Automatic backup system for your photos and important files.
+Protect your memories so they are never lost if a computer or phone fails.
+</p>
+</div>
 
-  a{color:var(--p1);text-decoration:none}
-  a:hover{text-decoration:underline}
 
-  /* ====== Header / Hero ====== */
-  .hero{
-    position:relative;
-    overflow:hidden;
-    isolation:isolate;
-    background:
-      radial-gradient(800px 480px at 15% 20%, rgba(124,255,233,.35), transparent 60%),
-      radial-gradient(800px 480px at 90% 10%, rgba(255,122,162,.35), transparent 60%),
-      linear-gradient(135deg, #0f1b2a, #12121a 70%);
-    border-bottom:1px solid var(--line);
-  }
+<div class="card span-6">
+<h2>Home File Server — $80</h2>
+<p>
+A central place in your home to store files, photos, and documents.
+Access your files from any computer in your house.
+</p>
+</div>
 
-  .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px;}
 
-  .hero-grid{
-    display:grid; gap:22px; align-items:center;
-    grid-template-columns: 180px 1fr;
-    padding:36px 0 24px;
-  }
+<div class="card span-6">
+<h2>Computer Cleanup / Tune-Up — $40</h2>
+<p>
+Fix slow computers, remove unnecessary programs, and improve performance.
+Great for older laptops or desktops that feel sluggish.
+</p>
+</div>
 
-  .pfp{
-    width:180px;height:180px;border-radius:50%;
-    background:#0e1420;border:2px solid rgba(255,255,255,.22);
-    overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,.35);
-  }
-  .pfp img{width:100%;height:100%;object-fit:cover}
 
-  h1{margin:0;font-size:2.25rem;letter-spacing:.2px}
-  .subtitle{color:var(--muted);margin:8px 0 0}
+<div class="card span-6">
+<h2>Wi-Fi / Router Setup — $40</h2>
+<p>
+Set up or troubleshoot your home Wi-Fi network so everything connects properly.
+Includes security setup and basic network optimization.
+</p>
+</div>
 
-  .tags{margin:12px 0 0; display:flex; flex-wrap:wrap; gap:8px}
-  .tag{
-    padding:6px 10px;border-radius:999px;border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-    color:var(--muted); font-size:.9rem; white-space:nowrap;
-  }
 
-  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-  .btn{
-    display:inline-block; padding:11px 14px; border-radius:12px; font-weight:600;
-    border:1px solid var(--line); background:var(--card); color:var(--ink);
-    backdrop-filter: blur(6px);
-    transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
-  }
-  .btn:hover{transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.25); border-color:rgba(255,255,255,.25)}
-  .btn.primary{background: linear-gradient(135deg, var(--p5), var(--p3)); color:#06101d}
-  .btn.accent{background: linear-gradient(135deg, var(--p2), var(--p4)); color:#1b0b10}
-
-  /* ====== Sections ====== */
-  main{padding:28px 0}
-  .grid{display:grid; gap:18px; grid-template-columns: repeat(12, 1fr)}
-  .card{
-    border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-    border-radius:var(--r); padding:18px;
-  }
-  .span-12{grid-column: span 12}
-  .span-8{grid-column: span 8}
-  .span-6{grid-column: span 6}
-  .span-4{grid-column: span 4}
-
-  h2{margin:.2rem 0 .6rem; font-size:1.2rem}
-  p{margin:.3rem 0}
-  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-  .pill{
-    padding:6px 10px;border-radius:999px;border:1px solid var(--line);
-    background:linear-gradient(135deg, rgba(124,255,233,.16), rgba(87,165,255,.16));
-    color:#dff9ff; font-size:.9rem
-  }
-  .list a{
-    display:block; padding:10px 12px; margin:8px 0; border-radius:12px;
-    border:1px solid var(--line); background:var(--card);
-  }
-  .list a:hover{background:linear-gradient(135deg, rgba(255,209,102,.15), rgba(167,139,250,.15)); text-decoration:none}
-
-  .mini{
-    color:var(--muted);
-    font-size:.95rem;
-  }
-
-  .kv{
-    display:grid;
-    grid-template-columns: 160px 1fr;
-    gap:10px 16px;
-    margin-top:10px;
-  }
-  .kv div{padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
-  .kv .k{color:var(--muted);font-weight:600}
-  .kv .v{color:var(--ink)}
-
-  footer{color:var(--muted); text-align:center; padding:22px 0 28px}
-
-  /* ====== Mobile tweaks ====== */
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns: 110px 1fr}
-    .pfp{width:110px;height:110px}
-    .span-8,.span-6,.span-4{grid-column: span 12}
-    .kv{grid-template-columns: 1fr}
-  }
-</style>
-</head>
-
-<body>
-  <!-- ====== HERO ====== -->
-  <header class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="pfp">
-          <img src="/chrisv.png" alt="Portrait of Christian Vega" loading="eager" />
-        </div>
-        <div>
-          <h1>IT & Self-Hosting</h1>
-          <p class="subtitle">Home-lab builds • Linux servers • networking • backups • automation</p>
-
-          <div class="tags">
-            <span class="tag">Linux-first</span>
-            <span class="tag">Practical security</span>
-            <span class="tag">Self-hosted stacks</span>
-            <span class="tag">“Fix it & document it”</span>
-          </div>
-
-          <div class="cta">
-            <a class="btn primary" href="/">← Home</a>
-            <a class="btn" href="/links/">Links</a>
-            <a class="btn accent" href="mailto:chrisvega12345@gmail.com?subject=IT%20Project%20Inquiry">Contact</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ====== MAIN ====== -->
-  <div class="wrap">
-    <main>
-      <section class="grid">
-        <div class="card span-8">
-          <h2>What I Do</h2>
-          <p>
-            I build small, reliable systems that just work: Linux servers, home network services, and self-hosted tools.
-            I’m comfortable with the full stack from router settings → DNS → VPN access → backups and maintenance.
-          </p>
-          <p class="mini">
-            My style: keep it simple, keep it documented, verify backups, and design for “future me” to understand.
-          </p>
-
-          <div class="pills">
-            <span class="pill">Linux server setup</span>
-            <span class="pill">Self-hosted services</span>
-            <span class="pill">Backups & imaging</span>
-            <span class="pill">DNS / local networking</span>
-            <span class="pill">VPN access (Tailscale)</span>
-            <span class="pill">Automation & scripts</span>
-          </div>
-        </div>
-
-        <div class="card span-4">
-          <h2>Capabilities</h2>
-          <div class="list">
-            <a href="#homelab">🧰 Home lab & 24/7 server</a>
-            <a href="#services">🧩 Services & stacks</a>
-            <a href="#ops">🧯 Ops, backups, recovery</a>
-            <a href="#projects">🧪 Projects & experiments</a>
-          </div>
-        </div>
-
-        <div id="homelab" class="card span-6">
-          <h2>Home Lab Snapshot</h2>
-          <p>
-            I’ve turned “found hardware” into useful infrastructure — including a laptop server running 24/7.
-            I’ve also built internal-only web tools and experimented with different approaches until the system matches the real need.
-          </p>
-
-          <div class="kv" aria-label="Home lab highlights">
-            <div class="k">Server</div><div class="v">Linux-based 24/7 machine</div>
-            <div class="k">Backups</div><div class="v">Snapshots / system restore mindset</div>
-            <div class="k">Networking</div><div class="v">Router + DNS + LAN services</div>
-            <div class="k">Remote Access</div><div class="v">VPN tunneling (Tailscale)</div>
-          </div>
-        </div>
-
-        <div id="services" class="card span-6">
-          <h2>Services & Tools I’ve Set Up</h2>
-          <p>
-            I’ve implemented common homelab building blocks and know how to troubleshoot them when they don’t behave.
-            If something doesn’t serve the goal, I’ll simplify or replace it.
-          </p>
-          <div class="pills">
-            <span class="pill">File server / LAN shares</span>
-            <span class="pill">Custom DNS (lab)</span>
-            <span class="pill">VPN mesh (Tailscale)</span>
-            <span class="pill">SSH access</span>
-            <span class="pill">Local-only web tools</span>
-            <span class="pill">Email → SMS gateway (experiment)</span>
-          </div>
-        </div>
-
-        <div id="ops" class="card span-6">
-          <h2>Ops Mindset</h2>
-          <p>
-            Reliability is a habit. I care about verification, recovery, and building systems that don’t require constant babysitting.
-          </p>
-          <div class="pills">
-            <span class="pill">Document the setup</span>
-            <span class="pill">Backups you can restore</span>
-            <span class="pill">Least-privilege defaults</span>
-            <span class="pill">Simple monitoring</span>
-            <span class="pill">Versioned configs</span>
-          </div>
-          <p class="mini">
-            If you want “set it and forget it,” I build with that in mind — and I also plan for the day something breaks.
-          </p>
-        </div>
-
-        <div class="card span-6">
-          <h2>What I’m Building Next</h2>
-          <p>
-            I like turning a home network into a clean, understandable system: a dashboard, a couple key services, and solid backups.
-          </p>
-          <div class="pills">
-            <span class="pill">Network dashboard wall panel</span>
-            <span class="pill">Self-hosted status page</span>
-            <span class="pill">Automated image backups</span>
-            <span class="pill">Local DNS done right</span>
-            <span class="pill">Containerized services</span>
-          </div>
-        </div>
-
-        <div id="projects" class="card span-12">
-          <h2>Projects & Experiments</h2>
-          <p class="mini">A few things I’ve done or explored (and I’m always iterating):</p>
-          <div class="grid" style="gap:12px; grid-template-columns: repeat(12, 1fr);">
-            <div class="card span-4">
-              <h2>GitHub Pages Site</h2>
-              <p>Built and deployed a clean, fast personal site (this one) with a simple structure and solid styling.</p>
-            </div>
-            <div class="card span-4">
-              <h2>LAN-only Tools</h2>
-              <p>Hosted internal pages/tools that only exist on the local network (including SSH/web experiments).</p>
-            </div>
-            <div class="card span-4">
-              <h2>Network Services</h2>
-              <p>DNS experiments, router configuration, VPN access, and practical troubleshooting when systems don’t cooperate.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card span-12">
-          <h2>Work With Me</h2>
-          <p>
-            If you need help setting up a small home server, organizing a simple self-hosted stack, or getting your network stable:
-            email me and tell me what hardware you have and what you want the system to do.
-          </p>
-          <p>
-            <a class="btn primary" href="mailto:chrisvega12345@gmail.com?subject=IT%20Project%20Inquiry">Email me</a>
-            <a class="btn" href="/">Back to Home</a>
-          </p>
-        </div>
-      </section>
-
-      <footer>© <span id="y"></span> Christian Vega</footer>
-    </main>
-  </div>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+<div class="card span-6">
+<h2>General Tech Help — $20/hour</h2>
+<p>
+Troubleshooting, software installs, printer setup, and general technology help.
+If I can't fix the issue, you don't pay.
+</p>
+</div>
