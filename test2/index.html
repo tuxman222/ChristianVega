@@ -1,199 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SOS</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jesus Loves You</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root {
+      --bg1: #f6f1e7;
+      --bg2: #e8dcc7;
+      --card: rgba(255,255,255,0.82);
+      --text: #2f2a24;
+      --muted: #6b6258;
+      --accent: #8c6a43;
+      --accent-dark: #6f5234;
+      --border: rgba(90, 70, 40, 0.14);
+      --shadow: 0 18px 45px rgba(60, 45, 25, 0.12);
+    }
 
-<meta name="robots" content="noindex">
+    * { box-sizing: border-box; }
 
-<style>
-body{
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin:auto;
-    padding:40px;
-    background:#f4f4f4;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.65), transparent 35%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
 
-h1{
-    text-align:center;
-}
+    .wrap {
+      width: 100%;
+      max-width: 860px;
+    }
 
-details{
-    background:white;
-    margin:10px 0;
-    padding:15px;
-    border-radius:8px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 34px 28px;
+    }
 
-summary{
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-}
+    .top {
+      text-align: center;
+      margin-bottom: 24px;
+    }
 
-ul{
-    margin-top:10px;
-}
+    .eyebrow {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
 
-button{
-    margin-top:20px;
-    padding:10px 20px;
-    font-size:16px;
-}
-</style>
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 0 auto;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.7;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      max-width: 560px;
+      margin: 28px auto 18px;
+    }
+
+    label {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    select, button {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-size: 1rem;
+    }
+
+    select {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.92);
+      color: var(--text);
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    button {
+      padding: 14px 18px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.08s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.9);
+      color: var(--text);
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .quote-box {
+      margin-top: 22px;
+      padding: 26px 22px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--border);
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .category-pill {
+      display: inline-block;
+      align-self: center;
+      margin-bottom: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(140,106,67,0.10);
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+
+    .verse {
+      font-size: clamp(1.28rem, 2.3vw, 1.8rem);
+      line-height: 1.65;
+      text-align: center;
+      margin: 0;
+    }
+
+    .reference {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .encouragement {
+      margin-top: 18px;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 26px 18px;
+      }
+
+      .button-row {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-box {
+        min-height: 280px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <main class="wrap">
+    <section class="card">
+      <div class="top">
+        <div class="eyebrow">A quiet place to breathe</div>
+        <h1>Jesus Loves You</h1>
+        <p class="subtitle">
+          Whatever brought you here, you do not have to carry everything alone.
+          Choose what your heart needs right now, and let this page give you a word of comfort.
+        </p>
+      </div>
 
-<h1>SOS</h1>
+      <div class="controls">
+        <div>
+          <label for="needSelect">What are you seeking right now?</label>
+          <select id="needSelect">
+            <option value="peace">Peace</option>
+            <option value="hope">Hope</option>
+            <option value="strength">Strength</option>
+            <option value="fear">Relief from fear</option>
+            <option value="forgiveness">Forgiveness</option>
+            <option value="lost">Feeling lost</option>
+            <option value="love">Love</option>
+          </select>
+        </div>
 
-<p>
-Personal contingency guide for emergency situations.  
-Click a situation below to expand the recovery steps.
-</p>
+        <div class="button-row">
+          <button class="primary" id="showBtn">Show me a verse</button>
+          <button class="secondary" id="anotherBtn">Show me another</button>
+        </div>
+      </div>
 
-<details>
-<summary>I have no money and no place to stay</summary>
+      <div class="quote-box" id="quoteBox">
+        <span class="category-pill" id="categoryPill">Peace</span>
+        <p class="verse" id="verseText">
+          “Peace I leave with you; my peace I give you. I do not give to you as the world gives.
+          Do not let your hearts be troubled and do not be afraid.”
+        </p>
+        <div class="reference" id="referenceText">John 14:27</div>
+        <div class="encouragement" id="encouragementText">
+          You do not have to force peace. Receive it one breath at a time.
+        </div>
+      </div>
 
-<ul>
-<li>Call <strong>211</strong> for local shelter resources</li>
-<li>Visit libraries or police stations and ask for homeless outreach</li>
-<li>Look for shelters, warming centers, or missions</li>
-<li>Save any remaining cash for transportation</li>
-</ul>
+      <p class="footer-note">
+        This page is here to remind you that even in confusion, pain, or exhaustion,
+        you are still seen, still wanted, and still loved.
+      </p>
+    </section>
+  </main>
 
-</details>
+  <script>
+    const quotes = {
+      peace: [
+        {
+          category: "Peace",
+          verse: "“Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid.”",
+          reference: "John 14:27",
+          encouragement: "You do not have to force peace. Receive it one breath at a time."
+        },
+        {
+          category: "Peace",
+          verse: "“Be still, and know that I am God.”",
+          reference: "Psalm 46:10",
+          encouragement: "Stillness is not failure. Sometimes stillness is trust."
+        },
+        {
+          category: "Peace",
+          verse: "“And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.”",
+          reference: "Philippians 4:7",
+          encouragement: "Even when your mind is loud, peace can still guard you."
+        }
+      ],
+      hope: [
+        {
+          category: "Hope",
+          verse: "“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.”",
+          reference: "Jeremiah 29:11",
+          encouragement: "A hard chapter is not the end of your story."
+        },
+        {
+          category: "Hope",
+          verse: "“Weeping may stay for the night, but rejoicing comes in the morning.”",
+          reference: "Psalm 30:5",
+          encouragement: "The night can feel long, but it is still not forever."
+        },
+        {
+          category: "Hope",
+          verse: "“Let us hold unswervingly to the hope we profess, for he who promised is faithful.”",
+          reference: "Hebrews 10:23",
+          encouragement: "Hope does not mean pretending. It means not letting darkness have the final word."
+        }
+      ],
+      strength: [
+        {
+          category: "Strength",
+          verse: "“Come to me, all you who are weary and burdened, and I will give you rest.”",
+          reference: "Matthew 11:28",
+          encouragement: "Rest is not weakness. Even Jesus invites tired people to stop striving."
+        },
+        {
+          category: "Strength",
+          verse: "“I can do all things through Christ who strengthens me.”",
+          reference: "Philippians 4:13",
+          encouragement: "Strength is not always loud. Sometimes it is simply not giving up today."
+        },
+        {
+          category: "Strength",
+          verse: "“My grace is sufficient for you, for my power is made perfect in weakness.”",
+          reference: "2 Corinthians 12:9",
+          encouragement: "God is not waiting for you to be impressive before He helps you."
+        }
+      ],
+      fear: [
+        {
+          category: "Relief from Fear",
+          verse: "“Fear not, for I am with you; be not dismayed, for I am your God. I will strengthen you, I will help you, I will uphold you with my righteous right hand.”",
+          reference: "Isaiah 41:10",
+          encouragement: "You are not facing this moment by yourself."
+        },
+        {
+          category: "Relief from Fear",
+          verse: "“When I am afraid, I put my trust in you.”",
+          reference: "Psalm 56:3",
+          encouragement: "Courage is not the absence of fear. It is choosing where to place your trust."
+        },
+        {
+          category: "Relief from Fear",
+          verse: "“For God has not given us a spirit of fear, but of power and of love and of a sound mind.”",
+          reference: "2 Timothy 1:7",
+          encouragement: "Fear may visit you, but it does not get to define you."
+        }
+      ],
+      forgiveness: [
+        {
+          category: "Forgiveness",
+          verse: "“If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness.”",
+          reference: "1 John 1:9",
+          encouragement: "You do not have to hide your mess from the One who came to heal it."
+        },
+        {
+          category: "Forgiveness",
+          verse: "“As far as the east is from the west, so far has he removed our transgressions from us.”",
+          reference: "Psalm 103:12",
+          encouragement: "God is not dangling your past over your head."
+        },
+        {
+          category: "Forgiveness",
+          verse: "“Neither do I condemn you. Go now and leave your life of sin.”",
+          reference: "John 8:11",
+          encouragement: "Real mercy tells the truth and still opens the door forward."
+        }
+      ],
+      lost: [
+        {
+          category: "Feeling Lost",
+          verse: "“Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.”",
+          reference: "Proverbs 3:5–6",
+          encouragement: "You do not need the whole map right now. You need the next faithful step."
+        },
+        {
+          category: "Feeling Lost",
+          verse: "“Your word is a lamp to my feet and a light to my path.”",
+          reference: "Psalm 119:105",
+          encouragement: "A lamp usually shows only the next few steps, and that is often enough."
+        },
+        {
+          category: "Feeling Lost",
+          verse: "“The Lord is close to the brokenhearted and saves those who are crushed in spirit.”",
+          reference: "Psalm 34:18",
+          encouragement: "Feeling broken does not mean God stepped away."
+        }
+      ],
+      love: [
+        {
+          category: "Love",
+          verse: "“See what great love the Father has lavished on us, that we should be called children of God!”",
+          reference: "1 John 3:1",
+          encouragement: "You are not merely tolerated. You are loved."
+        },
+        {
+          category: "Love",
+          verse: "“Neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord.”",
+          reference: "Romans 8:39",
+          encouragement: "Your worst day has not made you unreachable."
+        },
+        {
+          category: "Love",
+          verse: "“I have loved you with an everlasting love.”",
+          reference: "Jeremiah 31:3",
+          encouragement: "God’s love is not fragile, moody, or temporary."
+        }
+      ]
+    };
 
+    const needSelect = document.getElementById("needSelect");
+    const showBtn = document.getElementById("showBtn");
+    const anotherBtn = document.getElementById("anotherBtn");
+    const categoryPill = document.getElementById("categoryPill");
+    const verseText = document.getElementById("verseText");
+    const referenceText = document.getElementById("referenceText");
+    const encouragementText = document.getElementById("encouragementText");
 
-<details>
-<summary>I need food immediately</summary>
+    let lastIndexByCategory = {};
 
-<ul>
-<li>Soup kitchens</li>
-<li>Salvation Army</li>
-<li>Catholic Charities</li>
-<li>Sikh temples (free meals)</li>
-<li>Community fridges</li>
-<li>Food pantries</li>
-</ul>
+    function pickQuote(category) {
+      const list = quotes[category];
+      if (!list || list.length === 0) return null;
 
-</details>
+      let idx;
+      if (list.length === 1) {
+        idx = 0;
+      } else {
+        do {
+          idx = Math.floor(Math.random() * list.length);
+        } while (idx === lastIndexByCategory[category]);
+      }
 
+      lastIndexByCategory[category] = idx;
+      return list[idx];
+    }
 
-<details>
-<summary>I need money fast</summary>
+    function renderQuote() {
+      const category = needSelect.value;
+      const item = pickQuote(category);
+      if (!item) return;
 
-<ul>
-<li>Day labor centers</li>
-<li>PeopleReady</li>
-<li>LaborWorks</li>
-<li>HireQuest</li>
-<li>Temporary employment agencies</li>
-</ul>
+      categoryPill.textContent = item.category;
+      verseText.textContent = item.verse;
+      referenceText.textContent = item.reference;
+      encouragementText.textContent = item.encouragement;
+    }
 
-</details>
-
-
-<details>
-<summary>I need a mailing address</summary>
-
-<ul>
-<li>Use a shelter address</li>
-<li>Church outreach centers</li>
-<li>General Delivery at the post office</li>
-</ul>
-
-</details>
-
-
-<details>
-<summary>I lost my ID or documents</summary>
-
-<ul>
-<li>Ask outreach organizations for help replacing:</li>
-<li>State ID</li>
-<li>Birth certificate</li>
-<li>Social Security card</li>
-</ul>
-
-</details>
-
-
-<details>
-<summary>I need assistance programs</summary>
-
-<ul>
-<li>SNAP (food stamps)</li>
-<li>Medicaid</li>
-<li>Temporary housing programs</li>
-<li>Lifeline phone program</li>
-</ul>
-
-</details>
-
-
-<details>
-<summary>Emergency and Help Hotline Numbers</summary>
-
-<p>Important U.S. help and crisis hotlines.</p>
-
-<ul>
-
-<li><strong>911 – Emergency Services</strong><br>
-Police, fire, or medical emergency.<br>
-<a href="tel:911">Call 911</a></li>
-
-<li><strong>988 – Suicide & Crisis Lifeline</strong><br>
-Mental health crisis support.<br>
-<a href="tel:988">Call or Text 988</a></li>
-
-<li><strong>211 – Community Help Line</strong><br>
-Housing, shelters, food banks, social services.<br>
-<a href="tel:211">Call 211</a></li>
-
-<li><strong>311 – City Services</strong><br>
-Local government services and non-emergency city help.<br>
-<a href="tel:311">Call 311</a></li>
-
-<li><strong>988 + 1 – Veterans Crisis Line</strong><br>
-Veterans support and crisis counseling.<br>
-<a href="tel:988">Call 988 then press 1</a></li>
-
-<li><strong>1-800-799-SAFE – National Domestic Violence Hotline</strong><br>
-<a href="tel:18007997233">1-800-799-7233</a></li>
-
-<li><strong>1-800-656-HOPE – Sexual Assault Hotline (RAINN)</strong><br>
-<a href="tel:18006564673">1-800-656-4673</a></li>
-
-<li><strong>1-800-RUNAWAY – National Runaway Safeline</strong><br>
-<a href="tel:18007862929">1-800-786-2929</a></li>
-
-<li><strong>1-800-662-HELP – Substance Abuse & Mental Health Services</strong><br>
-<a href="tel:18006624357">1-800-662-4357</a></li>
-
-<li><strong>1-800-222-1222 – Poison Control</strong><br>
-<a href="tel:18002221222">1-800-222-1222</a></li>
-
-<li><strong>1-800-985-5990 – Disaster Distress Helpline</strong><br>
-<a href="tel:18009855990">1-800-985-5990</a></li>
-
-<li><strong>1-888-373-7888 – Human Trafficking Hotline</strong><br>
-<a href="tel:18883737888">1-888-373-7888</a></li>
-
-<li><strong>1-877-565-8860 – Trans Lifeline</strong><br>
-<a href="tel:18775658860">1-877-565-8860</a></li>
-
-<li><strong>1-800-677-1116 – Elder Care Locator</strong><br>
-<a href="tel:18006771116">1-800-677-1116</a></li>
-
-</ul>
-
-</details>
-
-
-<button onclick="window.print()">Print This Page</button>
-
+    showBtn.addEventListener("click", renderQuote);
+    anotherBtn.addEventListener("click", renderQuote);
+    needSelect.addEventListener("change", renderQuote);
+  </script>
 </body>
 </html>
