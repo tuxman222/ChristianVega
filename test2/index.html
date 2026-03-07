@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Emergency Guide</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    padding:40px;
+    max-width:900px;
+    margin:auto;
+}
+
+#content{
+    display:none;
+}
+
+button{
+    padding:12px 20px;
+    font-size:16px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+textarea{
+    width:100%;
+    height:400px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Private Emergency Guide</h1>
+
+<div id="login">
+<p>Enter access code:</p>
+
+<input type="password" id="pass">
+<button onclick="checkPass()">Enter</button>
+
+</div>
+
+<div id="content">
+
+<h2>If I Ever Become Homeless — Action Plan</h2>
+
+<p><strong>Original question:</strong></p>
+
+<p>I'm homeless, I only have $10 to my name. How do I get back on my feet?</p>
+
+<hr>
+
+<h3>Step 1 – Protect the basics</h3>
+
+<p>Focus on shelter, food, and safety first.</p>
+
+<ul>
+<li>Call 211 for homeless resources</li>
+<li>Visit shelters or warming centers</li>
+<li>Use libraries or police stations to ask for help</li>
+</ul>
+
+<h3>Food</h3>
+
+<ul>
+<li>Salvation Army</li>
+<li>Catholic Charities</li>
+<li>Soup kitchens</li>
+<li>Sikh temples (free meals)</li>
+<li>Community fridges</li>
+</ul>
+
+<p>Save the $10 for emergency transportation.</p>
+
+<h3>Step 2 – Temporary income</h3>
+
+<p>Look for day labor:</p>
+
+<ul>
+<li>PeopleReady</li>
+<li>LaborWorks</li>
+<li>HireQuest</li>
+</ul>
+
+<p>Typical pay: $70–$120 per day.</p>
+
+<h3>Step 3 – Mailing address</h3>
+
+<ul>
+<li>Shelter address</li>
+<li>Church outreach center</li>
+<li>General Delivery at the post office</li>
+</ul>
+
+<h3>Step 4 – Replace documents</h3>
+
+<p>Ask outreach organizations for help replacing:</p>
+
+<ul>
+<li>State ID</li>
+<li>Birth certificate</li>
+<li>Social Security card</li>
+</ul>
+
+<h3>Step 5 – Apply for assistance</h3>
+
+<ul>
+<li>SNAP (food stamps)</li>
+<li>Medicaid</li>
+<li>Temporary housing programs</li>
+<li>Lifeline phone program</li>
+</ul>
+
+<h3>Step 6 – Build a small financial base</h3>
+
+<p>First goal: save $500–$1000.</p>
+
+<p>Use shelters and food programs while working temporary jobs until you can rent a room.</p>
+
+<hr>
+
+<h2>Download / Print</h2>
+
+<button onclick="window.print()">Print This Page</button>
+
+</div>
+
+
+<script>
+
+function checkPass(){
+
+var password = "mysecretcode"; // CHANGE THIS
+
+if(document.getElementById("pass").value === password){
+
+document.getElementById("login").style.display="none";
+document.getElementById("content").style.display="block";
+
+}else{
+
+alert("Incorrect code");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
