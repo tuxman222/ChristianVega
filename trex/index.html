@@ -1,1 +1,312 @@
-vhb
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T-Rex Jump Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f4efe6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .game-wrap {
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .hud {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: #3f352c;
+    }
+
+    #game {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #fffdf8, #f7f1e7);
+      border: 2px solid #c8b9a6;
+      border-radius: 16px;
+    }
+
+    #ground {
+      position: absolute;
+      bottom: 0;
+      width: 200%;
+      height: 50px;
+      background:
+        repeating-linear-gradient(
+          to right,
+          #c7b59d 0 30px,
+          #bca88e 30px 60px
+        );
+    }
+
+    #player {
+      position: absolute;
+      left: 70px;
+      bottom: 50px;
+      width: 44px;
+      height: 44px;
+      background: #2d2d2d;
+      border-radius: 6px;
+    }
+
+    #player::before {
+      content: "";
+      position: absolute;
+      right: -8px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      background: #2d2d2d;
+      border-radius: 3px;
+    }
+
+    #player::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      bottom: -8px;
+      width: 30px;
+      height: 8px;
+      background: repeating-linear-gradient(
+        to right,
+        #2d2d2d 0 5px,
+        transparent 5px 10px
+      );
+    }
+
+    .cactus {
+      position: absolute;
+      bottom: 50px;
+      width: 24px;
+      height: 50px;
+      background: #5b7f47;
+      border-radius: 4px;
+    }
+
+    .cactus::before,
+    .cactus::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 18px;
+      background: #5b7f47;
+      border-radius: 4px;
+    }
+
+    .cactus::before {
+      left: -8px;
+      top: 14px;
+    }
+
+    .cactus::after {
+      right: -8px;
+      top: 8px;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 12px;
+      color: #5a4a3e;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-wrap">
+    <div class="hud">
+      <div>Score: <span id="score">0</span></div>
+      <div>High Score: <span id="highScore">0</span></div>
+    </div>
+
+    <div id="game">
+      <div id="player"></div>
+      <div id="ground"></div>
+    </div>
+
+    <div class="message" id="message">
+      Press <strong>Space</strong>, <strong>↑</strong>, or tap the game to start and jump
+    </div>
+  </div>
+
+  <script>
+    const game = document.getElementById("game");
+    const player = document.getElementById("player");
+    const ground = document.getElementById("ground");
+    const scoreEl = document.getElementById("score");
+    const highScoreEl = document.getElementById("highScore");
+    const messageEl = document.getElementById("message");
+
+    let playerY = 50;
+    let velocityY = 0;
+    let gravity = 0.85;
+    let jumpPower = 14;
+    let isJumping = false;
+    let gameRunning = false;
+    let score = 0;
+    let highScore = Number(localStorage.getItem("trexHighScore")) || 0;
+    let speed = 6;
+    let obstacleTimer = 0;
+    let obstacles = [];
+    let animationId = null;
+    let groundOffset = 0;
+
+    highScoreEl.textContent = highScore;
+
+    function startGame() {
+      if (gameRunning) return;
+      resetGame();
+      gameRunning = true;
+      messageEl.classList.add("hidden");
+      loop();
+    }
+
+    function resetGame() {
+      cancelAnimationFrame(animationId);
+      obstacles.forEach(o => o.remove());
+      obstacles = [];
+      score = 0;
+      speed = 6;
+      obstacleTimer = 0;
+      playerY = 50;
+      velocityY = 0;
+      isJumping = false;
+      player.style.bottom = playerY + "px";
+      scoreEl.textContent = score;
+    }
+
+    function jump() {
+      if (!gameRunning) {
+        startGame();
+      }
+      if (!isJumping) {
+        isJumping = true;
+        velocityY = jumpPower;
+      }
+    }
+
+    function createObstacle() {
+      const obstacle = document.createElement("div");
+      obstacle.className = "cactus";
+      obstacle.style.left = game.clientWidth + "px";
+      game.appendChild(obstacle);
+      obstacles.push(obstacle);
+    }
+
+    function updatePlayer() {
+      if (isJumping) {
+        velocityY -= gravity;
+        playerY += velocityY;
+
+        if (playerY <= 50) {
+          playerY = 50;
+          velocityY = 0;
+          isJumping = false;
+        }
+
+        player.style.bottom = playerY + "px";
+      }
+    }
+
+    function updateGround() {
+      groundOffset -= speed;
+      ground.style.transform = `translateX(${groundOffset}px)`;
+      if (Math.abs(groundOffset) >= game.clientWidth) {
+        groundOffset = 0;
+      }
+    }
+
+    function updateObstacles() {
+      obstacleTimer++;
+
+      const spawnRate = Math.max(55, 110 - Math.floor(score / 5));
+      if (obstacleTimer >= spawnRate) {
+        obstacleTimer = 0;
+        createObstacle();
+      }
+
+      obstacles.forEach((obstacle, index) => {
+        let x = parseFloat(obstacle.style.left);
+        x -= speed;
+        obstacle.style.left = x + "px";
+
+        const playerRect = player.getBoundingClientRect();
+        const obstacleRect = obstacle.getBoundingClientRect();
+
+        const hit =
+          playerRect.left < obstacleRect.right &&
+          playerRect.right > obstacleRect.left &&
+          playerRect.top < obstacleRect.bottom &&
+          playerRect.bottom > obstacleRect.top;
+
+        if (hit) {
+          endGame();
+        }
+
+        if (x < -40) {
+          obstacle.remove();
+          obstacles.splice(index, 1);
+          score++;
+          scoreEl.textContent = score;
+
+          if (score > highScore) {
+            highScore = score;
+            localStorage.setItem("trexHighScore", highScore);
+            highScoreEl.textContent = highScore;
+          }
+
+          if (score % 5 === 0) {
+            speed += 0.4;
+          }
+        }
+      });
+    }
+
+    function endGame() {
+      gameRunning = false;
+      cancelAnimationFrame(animationId);
+      messageEl.classList.remove("hidden");
+      messageEl.innerHTML = `Game over. Score: <strong>${score}</strong>. Press <strong>Space</strong>, <strong>↑</strong>, or tap to try again`;
+    }
+
+    function loop() {
+      if (!gameRunning) return;
+      updatePlayer();
+      updateGround();
+      updateObstacles();
+      animationId = requestAnimationFrame(loop);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space" || e.code === "ArrowUp") {
+        e.preventDefault();
+        jump();
+      }
+    });
+
+    game.addEventListener("click", jump);
+    game.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      jump();
+    }, { passive: false });
+  </script>
+</body>
+</html>
